@@ -39,6 +39,13 @@ public class LongInt {
 
   // returns 'this' + 'opnd'; Both inputs remain intact.
   public LongInt add(LongInt opnd) {
+    if (this.isNegative && !opnd.isNegative) {
+      return opnd.subtract(new LongInt(this.value, !this.isNegative, this.length));
+    }
+    else if (!this.isNegative && opnd.isNegative) {
+      return this.subtract(new LongInt(opnd.value, !opnd.isNegative, opnd.length));
+    }
+
     LongInt result; //= new LongInt(null, false, 0);
     int newLength = this.length > opnd.length ? this.length : opnd.length;
     newLength++;
@@ -47,113 +54,76 @@ public class LongInt {
 
     int[] newValue = new int[newLength];
 
-    if (!this.isNegative && !opnd.isNegative) {
-      for (int i=0; i<newLength; i++) {
-        tmpResult = 0;
-        if (this.value.length > i) tmpResult += this.value[i];
-        if (opnd.value.length > i) tmpResult += opnd.value[i];
-        tmpResult += carry;
+    for (int i=0; i<newLength; i++) {
+      tmpResult = 0;
+      if (this.length > i) tmpResult += this.value[i];
+      if (opnd.length > i) tmpResult += opnd.value[i];
+      tmpResult += carry;
 
-        if (tmpResult > 9){
-          carry = 1;
-          newValue[i] = tmpResult%10;
-        }
-        else {
-          carry = 0;
-          newValue[i] = tmpResult;
-        }
-
+      if (tmpResult > 9){
+        carry = 1;
+        newValue[i] = tmpResult%10;
       }
-      result = new LongInt(newValue, false, newLength);
-    }
-    else if (this.isNegative && opnd.isNegative) {
-      for (int i=0; i<newLength; i++) {
-        tmpResult = 0;
-        if (this.value.length > i) tmpResult += this.value[i];
-        if (opnd.value.length > i) tmpResult += opnd.value[i];
-        tmpResult += carry;
-
-        newValue[i] = (tmpResult % 10);
-
-        if (tmpResult > 9){
-          carry = 1;
-          tmpResult -= 10;
-        }
-        else {
-          carry = 0;
-        }
+      else {
+        carry = 0;
         newValue[i] = tmpResult;
       }
+    }
+
+    if (!this.isNegative && !opnd.isNegative) {
+      result = new LongInt(newValue, false, newLength);
+    }
+    else {
       result = new LongInt(newValue, true, newLength);
     }
-
-    else if (this.isNegative){
-      for (int i=0; i<newLength; i++) {
-        tmpResult = 0;
-        if (opnd.value.length <= i && this.value.length <= i) break;
-
-        if (opnd.value.length > i) tmpResult += opnd.value[i];
-        if (this.value.length > i) tmpResult -= this.value[i];
-        tmpResult += carry;
-
-        newValue[i] = (tmpResult % 10);
-
-        if (tmpResult < 0) {
-          carry = -1;
-          newValue[i] = (10 + tmpResult);
-        }
-        else {
-          carry = 0;
-          newValue[i] = tmpResult;
-        }
-      }
-      if (carry < 0) {
-        result = new LongInt(newValue, true, newLength);
-      }
-      else {
-        result = new LongInt(newValue, false, newLength);
-      }
-
-    }
-
-    else {
-      for (int i=0; i<newLength; i++) {
-        tmpResult = 0;
-        if (opnd.value.length <= i && this.value.length <= i) break;
-        if (this.value.length > i) tmpResult += this.value[i];
-        if (opnd.value.length > i) tmpResult -= opnd.value[i];
-        tmpResult += carry;
-
-        newValue[i] = (tmpResult % 10);
-
-        if (tmpResult < 0) {
-          carry = -1;
-          newValue[i] = (10 + tmpResult);
-        }
-        else {
-          carry = 0;
-          newValue[i] = tmpResult;
-        }
-
-      }
-      if (carry < 0) {
-        result = new LongInt(newValue, true, newLength);
-      }
-      else {
-        result = new LongInt(newValue, false, newLength);
-      }
-    }
-
     result.removeLeadingZeros();
     return result;
   }
 
   // returns 'this' - 'opnd'; Both inputs remain intact.
   public LongInt subtract(LongInt opnd) {
-    LongInt newOpnd = new LongInt(opnd.value, !opnd.isNegative, opnd.length);
-    return this.add(newOpnd);
-  }
+    LongInt result;
 
+    if (this.isNegative != opnd.isNegative) { // A -(-B) => A + B
+      return this.subtract(new LongInt(opnd.value, !opnd.isNegative, opnd.length));
+    }
+    if (this.compareAbsoluteValueTo(opnd) == 0) return new LongInt("0"); // A - A => 0
+    else if (this.compareAbsoluteValueTo(opnd) < 0){ // -A+B => -(A-B) when A>B
+      result = opnd.subtract(this);
+      result.isNegative = !result.isNegative;
+      return result;
+    }
+    // A - B
+
+    int carry = 0;
+    int tmpResult = 0;
+
+    int[] newValue = new int[this.length];
+
+    for (int i=0; i<this.length; i++) {
+      tmpResult = this.value[i];
+      if (opnd.length > i) tmpResult -= opnd.value[i];
+      tmpResult += carry;
+      newValue[i] = (tmpResult % 10);
+
+      if (tmpResult < 0) {
+        carry = -1;
+        newValue[i] = (10 + tmpResult);
+      }
+      else {
+        carry = 0;
+        newValue[i] = tmpResult;
+      }
+    }
+    if (carry < 0) {
+      result = new LongInt(newValue, true, this.length);
+    }
+    else {
+      result = new LongInt(newValue, false, this.length);
+    }
+    result.removeLeadingZeros();
+    return result;
+  }
   // returns 'this' * 'opnd'; Both inputs remain intact.
   public LongInt multiply(LongInt opnd) {
     LongInt result = new LongInt("0");
@@ -192,6 +162,7 @@ public class LongInt {
     return result;
   }
 
+  // removes leading zeros
   public void removeLeadingZeros() {
     if (this.length == 1) return;
 
@@ -210,9 +181,20 @@ public class LongInt {
     this.length = tmp;
   }
 
+  // returns positive integer if this > opnd, negative if this < opnd, zero if this == opnd.
+  // considers only absolute values, does not care about signs
+  public int compareAbsoluteValueTo(LongInt opnd) {
+    if (this.length != opnd.length) return this.length - opnd.length;
+    else {
+      for (int i=this.length-1; i>=0; i--) {
+        if (this.value[i] != opnd.value[i]) return this.value[i] - opnd.value[i];
+      }
+    }
+    return 0;
+  }
+
   // print the value of 'this' element to the standard output.
   public void print() {
-    //this.removeLeadingZeros();
     if (this.isNegative){
       System.out.print("-");
     }
