@@ -6,7 +6,6 @@ public class LongInt {
   public int[] value;
   public boolean isNegative;
   public int length;
-  // TODO: 00000011과 같이 여러 0으로 시작하는 경우 고려해야?
 
   // constructor
   public LongInt(String s) {
@@ -85,7 +84,7 @@ public class LongInt {
     LongInt result;
 
     if (this.isNegative != opnd.isNegative) { // A -(-B) => A + B
-      return this.subtract(new LongInt(opnd.value, !opnd.isNegative, opnd.length));
+      return this.add(new LongInt(opnd.value, !opnd.isNegative, opnd.length));
     }
     if (this.compareAbsoluteValueTo(opnd) == 0) return new LongInt("0"); // A - A => 0
     else if (this.compareAbsoluteValueTo(opnd) < 0){ // -A+B => -(A-B) when A>B
@@ -128,27 +127,14 @@ public class LongInt {
   public LongInt multiply(LongInt opnd) {
     LongInt result = new LongInt("0");
     LongInt tmpLongInt;
-    int newLength = this.length + opnd.length;
+    int newLength = this.length + opnd.length + 1;
     int carry = 0;
     int tmpResult = 0;
     int[] tmpValue = new int[newLength];
 
-    for (int i=0; i<this.length; i++) {
-      tmpResult = 0;
-      carry = 0;
-      for (int k=0; k<i; k++) {
-        tmpValue[k] = 0;
-      }
-      for (int j=0; j<opnd.length; j++) {
-        tmpResult = this.value[i] * opnd.value[j] + carry;
-        carry = tmpResult / 10;
-        tmpResult %= 10;
-        tmpValue[i+j] = tmpResult;
-      }
-      if (carry != 0) {
-        tmpValue[this.length + opnd.length - 1] = carry;
-      }
-      tmpLongInt = new LongInt(tmpValue, false, newLength);
+    for (int j=0; j<opnd.length; j++) {
+      tmpLongInt = this.multiplyOneDigit(opnd.value[j]);
+      tmpLongInt.insertTralingZeros(j);
       result = result.add(tmpLongInt);
     }
 
@@ -158,6 +144,29 @@ public class LongInt {
     else {
       result.isNegative = true;
     }
+    result.removeLeadingZeros();
+    return result;
+  }
+
+  // computes 1453*3, 1453*4, 1453*5, ...
+  // opnd should be one digit number
+  // only considers positive * positive
+  public LongInt multiplyOneDigit(int opnd) {
+    LongInt result; //= new LongInt(null, false, 0);
+    int newLength = this.length + 1;
+    int carry = 0;
+    int tmpResult = 0;
+
+    int[] newValue = new int[newLength];
+
+    for (int i=0; i<this.length; i++) {
+      tmpResult = this.value[i] * opnd + carry;
+      carry = tmpResult / 10;
+      newValue[i] = tmpResult % 10;
+    }
+    newValue[this.length] = carry;
+
+    result = new LongInt(newValue, false, newLength);
     result.removeLeadingZeros();
     return result;
   }
@@ -179,6 +188,20 @@ public class LongInt {
 
     this.value = Arrays.copyOf(this.value, tmp);
     this.length = tmp;
+  }
+
+  public void insertTralingZeros(int n){
+    if (n<=0) return;
+    int newLength = this.length + n;
+    int[] newValue = new int[newLength];
+    for (int i=0; i<n; i++) {
+      newValue[i] = 0;
+    }
+    for (int j=0; j<this.length; j++) {
+      newValue[n+j] = this.value[j];
+    }
+    this.value = newValue;
+    this.length = newLength;
   }
 
   // returns positive integer if this > opnd, negative if this < opnd, zero if this == opnd.

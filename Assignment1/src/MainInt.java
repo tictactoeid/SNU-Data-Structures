@@ -28,6 +28,10 @@ public class MainInt {
 		long3 = long1.subtract(long2); break;
 	case '*':
 		long3 = long1.multiply(long2); break;
+	/* case '!':
+		long3 = long1.multiplyOneDigit(long2.value[0]); break;
+	case ':':
+		long3 = long1.insertTralingZeros(long2.value[0]); break;*/
 	}
 
 	//System.out.print(opnd1+" "+op+" "+opnd2+" = ");
