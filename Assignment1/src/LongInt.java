@@ -1,7 +1,6 @@
 // LongInt ADT for unbounded integers
 import java.util.Arrays;
-
-public class LongInt {
+class LongInt {
   //public char[] value;
   public int[] value;
   public boolean isNegative;
@@ -86,12 +85,26 @@ public class LongInt {
     if (this.isNegative != opnd.isNegative) { // A -(-B) => A + B
       return this.add(new LongInt(opnd.value, !opnd.isNegative, opnd.length));
     }
+
     if (this.compareAbsoluteValueTo(opnd) == 0) return new LongInt("0"); // A - A => 0
-    else if (this.compareAbsoluteValueTo(opnd) < 0){ // -A+B => -(A-B) when A>B
+
+      // A - B
+      // (-A) - (-B)
+
+    else if (this.isNegative && opnd.isNegative) {
+      // -A - -B => -A + B => B - A
+      LongInt a1 = new LongInt(this.value, !this.isNegative, this.length);
+      LongInt a2 = new LongInt(opnd.value, !opnd.isNegative, opnd.length);
+      result = a2.subtract(a1);
+      return result;
+    }
+
+    else if (this.compareAbsoluteValueTo(opnd) < 0){ // A < B when A-B
       result = opnd.subtract(this);
       result.isNegative = !result.isNegative;
       return result;
     }
+
     // A - B
 
     int carry = 0;
@@ -173,7 +186,12 @@ public class LongInt {
 
   // removes leading zeros
   public void removeLeadingZeros() {
-    if (this.length == 1) return;
+    if (this.length == 1) {
+      if (this.value[0] == 0) {
+        this.isNegative = false; // -0
+        return;
+      }
+    }
 
     int tmp = this.length;
 
@@ -188,6 +206,12 @@ public class LongInt {
 
     this.value = Arrays.copyOf(this.value, tmp);
     this.length = tmp;
+
+    if (this.length == 1) {
+      if (this.value[0] == 0) {
+        this.isNegative = false; // -0
+      }
+    }
   }
 
   public void insertTralingZeros(int n){
@@ -219,7 +243,9 @@ public class LongInt {
   // print the value of 'this' element to the standard output.
   public void print() {
     if (this.isNegative){
-      System.out.print("-");
+      if (this.length!=1 || this.value[0]!=0) {
+        System.out.print("-");
+      }
     }
     for (int i=length-1; i>=0; i--){
       System.out.print(this.value[i]);
@@ -227,4 +253,3 @@ public class LongInt {
   }
 
 }
-
