@@ -1,55 +1,135 @@
-public class AVL extends BST
-{
-  public AVL() {
-    super();
-  }
+/* public class AVL extends BST {
+    public AVL() {
+        super();
+    }
 
-  private int height(Node n){
-    if (n == null) return 0;
-    return n.height;
-  }
+    int height(Node root) {
+        if (root == null)
+            return 0;
 
-  private void updateHeight(Node n) {
-    n.height = 1 + Math.max(height(n.leftChild), height(n.rightChild));
-  }
+        return root.height;
+    }
 
   private Node rotateLeft(Node n) {
+
+    //Node newParent = n.rightChild; // new parent
+    //Node tmp = newParent.leftChild;
+    //newParent.leftChild = n;
+    //n.rightChild = tmp;
     Node newParent = n.rightChild; // new parent
     n.rightChild = newParent.leftChild;
     newParent.leftChild = n;
 
-    updateHeight(n); // update new child first
-    updateHeight(newParent); // and new parent
+
+    n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+    newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
+
     return newParent;
+
   }
 
   private Node rotateRight(Node n) {
+    //Node newParent = n.leftChild;
+    //Node tmp = newParent.rightChild;
+    //newParent.rightChild = n;
+    //n.leftChild = tmp;
+
     Node newParent = n.leftChild;
     n.leftChild = newParent.rightChild;
     newParent.rightChild = n;
 
-    updateHeight(n);
-    updateHeight(newParent);
+
+    n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+    newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
     return newParent;
+
   }
 
-  private Node rotateLeftRight(Node n) {
-    n.leftChild = rotateLeft(n.leftChild);
-    return rotateRight(n);
+    Node insertNode(Node n, String value) {
+        if (n == null)
+            n = new Node(value);
+        else {
+            if (value.compareTo(n.key) < 0)
+                n.leftChild = insertNode(n.leftChild, value);
+            else if (value.equals(n.key)) {
+                n.frequency += 1;
+                return n;
+            }
+            else {
+                n.rightChild = insertNode(n.rightChild, value);
+            }
+
+        }
+
+        n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+
+        int balanceFactor = height(n.leftChild) - height(n.rightChild);
+
+        if (balanceFactor > 1) { // left
+          if (value.compareTo(n.leftChild.key) < 0) { // left
+              n = rotateRight(n);
+            } else { //lr
+                n.leftChild = rotateLeft(n.leftChild);
+                n = rotateRight(n);
+            }
+        } else if (balanceFactor < -1) { // right
+            if (value.compareTo(n.rightChild.key) > 0) {
+              n = rotateLeft(n);
+            } else { // rl
+              n.rightChild = rotateRight(n.rightChild);
+              n = rotateLeft(n);
+            }
+        }
+
+        return n;
+    }
+
+    public void insert(String value) {
+        root = insertNode(root, value);
+    }
+}
+
+*/
+
+public class AVL extends BST {
+  public AVL() {
+    super();
   }
 
-  private Node rotateRightLeft(Node n) {
-    n.rightChild = rotateRight(n.rightChild);
-    return rotateLeft(n);
+  private int height(Node n) {
+    if (n == null) return 0;
+    return n.height;
   }
+
+  private Node rotateLeft(Node n) {
+
+    Node newParent = n.rightChild; // new parent
+    Node tmp = newParent.leftChild;
+    newParent.leftChild = n;
+    n.rightChild = tmp;
+
+    n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+    newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
+
+    return newParent;
+
+  }
+
+  private Node rotateRight(Node n) {
+    Node newParent = n.leftChild;
+    Node tmp = newParent.rightChild;
+    newParent.rightChild = n;
+    n.leftChild = tmp;
+
+    n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+    newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
+    return newParent;
+
+  }
+
 
   public void insert(String key) {
-    if (root == null) {
-      root = new Node(key);
-    }
-    else {
-      insert(root, key);
-    }
+      root = insert(root, key);
   }
 
   private int balanceFactor(Node n) {
@@ -58,51 +138,39 @@ public class AVL extends BST
   }
 
   public Node insert(Node n, String key) {
-    //System.out.println(key);
-    // insert
     if (n == null) {
-      n = new Node(key);
-      // System.out.println(key);
-      // nodes.add(n);
-      return n;
+      return new Node(key);
     }
 
-    if (key.equals(n.key)) {
-      n.frequency += 1;
-      return n;
-    }
-    else if (key.compareTo(n.key) > 0) {
-      n.rightChild = insert(n.rightChild, key);
-    }
-    else if (key.compareTo(n.key) < 0){
-      n.leftChild = insert(n.leftChild, key);
-    }
-    updateHeight(n);
-
-    // rotate
     if (key.compareTo(n.key) > 0) {
-      if (balanceFactor(n) <= -2) {
-        if (key.compareTo(n.rightChild.key) > 0) {
-          n = rotateLeft(n);
-          // TODO: build fails when execute rotateLeft() ?
-        } else if (key.compareTo(n.rightChild.key) < 0) {
-          n = rotateRightLeft(n);
-        }
-      }
-    }
-    else if (key.compareTo(n.key) < 0) {
-      if (balanceFactor(n) >= 2) {
-        if (key.compareTo(n.leftChild.key) < 0) {
-          n = rotateRight(n);
-        } else if (key.compareTo(n.leftChild.key) > 0) {
-          n = rotateLeftRight(n);
-        }
-      }
+      n.rightChild = insert(n.rightChild, key);
+    } else if (key.compareTo(n.key) < 0) {
+      n.leftChild = insert(n.leftChild, key);
+    } else {
+      n.frequency += 1; // TODO: 따로 빼야 하나?
+      return n;
     }
 
-    //updateHeight(n);
+    n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
+    int balanceFactor = balanceFactor(n);
+        if (balanceFactor > 1) { // left
+          if (key.compareTo(n.leftChild.key) < 0) { // left
+              n = rotateRight(n);
+            } else { //lr
+                n.leftChild = rotateLeft(n.leftChild);
+                n = rotateRight(n);
+            }
+        } else if (balanceFactor < -1) { // right
+            if (key.compareTo(n.rightChild.key) > 0) {
+              n = rotateLeft(n);
+            } else { // rl
+              n.rightChild = rotateRight(n.rightChild);
+              n = rotateLeft(n);
+            }
+        }
+
     return n;
   }
- 
 }
+
 

@@ -1,40 +1,4 @@
 import java.util.ArrayList;
-
-class Node {
-  String key;
-  Node leftChild;
-  Node rightChild;
-  int frequency;
-  int accessCount;
-  int height; // for AVL, not used in BST
-  public Node(String key){
-    this.key = key;
-    this.leftChild = null;
-    this.rightChild = null;
-    this.frequency = 1;
-    this.accessCount = 0;
-    this.height = 1;
-  }
-
-  @Override
-  public boolean equals(Object n) {
-    if (!(n instanceof Node)) return false;
-    return this.key.equals(((Node) n).key);
-    /*if (this.key.equals(((Node) n).key)) {
-      System.out.println("true");
-      return true;
-    }
-
-    System.out.println("false");
-    return false;
-    //
-    */
-
-  }
-
-}
-
-
 public class BST { // Binary Search Tree implementation
   // ArrayList<Node> nodes;
   Node root;
@@ -65,6 +29,7 @@ public class BST { // Binary Search Tree implementation
     }
 
     if (n.key.equals(key)) {
+      // n.frequency += 1;
       n.frequency += 1;
       return n;
     }
