@@ -104,9 +104,9 @@ public class AVL extends BST {
   private Node rotateLeft(Node n) {
 
     Node newParent = n.rightChild; // new parent
-    Node tmp = newParent.leftChild;
+    n.rightChild = newParent.leftChild;
     newParent.leftChild = n;
-    n.rightChild = tmp;
+    //n.rightChild = tmp;
 
     n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
     newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
@@ -117,9 +117,9 @@ public class AVL extends BST {
 
   private Node rotateRight(Node n) {
     Node newParent = n.leftChild;
-    Node tmp = newParent.rightChild;
+    n.leftChild = newParent.rightChild;
     newParent.rightChild = n;
-    n.leftChild = tmp;
+    //n.leftChild = tmp;
 
     n.height = Math.max(height(n.leftChild), height(n.rightChild)) + 1;
     newParent.height = Math.max(height(newParent.leftChild), height(newParent.rightChild)) + 1;
@@ -130,6 +130,7 @@ public class AVL extends BST {
 
   public void insert(String key) {
       root = insert(root, key);
+      // todo: why it works? i found it from google...
   }
 
   private int balanceFactor(Node n) {
