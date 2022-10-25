@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 public class BST { // Binary Search Tree implementation
   // ArrayList<Node> nodes;
   Node root;
@@ -8,6 +7,8 @@ public class BST { // Binary Search Tree implementation
   }
 
   public void insert(String key) {
+    /*
+    // this code also works, but not works for AVL...
     if (root == null) {
       root = new Node(key);
       // nodes.add(root);
@@ -17,7 +18,8 @@ public class BST { // Binary Search Tree implementation
       // if (!nodes.contains(n)) nodes.add(n);
 
       // duplicate node?
-    }
+    }*/
+    root = insert(root, key);
   }
 
   public Node insert(Node n, String key) {
@@ -125,33 +127,6 @@ public class BST { // Binary Search Tree implementation
       System.out.println("["+n.key+":"+n.frequency+":"+n.accessCount+"]");
       printInOrder(n.rightChild);
     }
-    /* if (n.leftChild == null) {
-      System.out.println("["+n.key+":"+n.frequency+":"+n.accessCount+"]");
-      printInOrder(n.rightChild);
-    }
-    printInOrder(n.leftChild); */
-
-
   }
-
-  public void printTree() {
-    printTree(root, "", true);
-  }
-  private void printTree(Node currPtr, String indent, boolean last) {
-    if (currPtr != null) {
-      System.out.print(indent);
-      if (last) {
-        System.out.print("R----");
-        indent += "   ";
-      } else {
-        System.out.print("L----");
-        indent += "|  ";
-      }
-      System.out.println(currPtr.key);
-      printTree(currPtr.leftChild, indent, false);
-      printTree(currPtr.rightChild, indent, true);
-    }
-  }
-
 }
 

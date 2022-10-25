@@ -2,5 +2,7 @@
 Assignment1/Assignment1.iml
 /Assignment1/out/
 Assignment2/.idea/Assignment2.iml
+/Assignment2/out/
+/Assignment2/.idea/
 *.xml
 *.iml

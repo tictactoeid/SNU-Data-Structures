@@ -251,7 +251,7 @@
 [with:8:0]
 [within}:2:0]
 [{\tt:4:0]
-CPU time to build a(n) BST: 18 millisec
+CPU time to build a(n) BST: 16 millisec
 [$R$:2:0]
 [$S$.:2:0]
 [$\dist{r,s}$:2:0]
@@ -757,7 +757,7 @@ Number of words in the BST: 251 (number of insertions: 1000)
 [within}:1:2]
 [{\tt:1:6]
 Total number of node accesses (BST): 8606 (failed searches: 0)
-CPU time for searching keys (BST): 3 millisec
+CPU time for searching keys (BST): 4 millisec
 [$R$:1:4]
 [$S$.:1:2]
 [$\dist{r,s}$:1:18]
@@ -1296,5 +1296,5 @@ Words found: 1000 (searches failed: 0)
 Total number of Hash Table accesses: 1979.0
 CPU time for searching keys in the Hash Table: 2 millisec
 
-Memory consumption: 9688856 bytes
+Memory consumption: 9688816 bytes
 

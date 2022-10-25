@@ -29,8 +29,4 @@ public class Node {
     */
 
     }
-    public void setFrequency(int n) {
-        this.frequency = n;
-    }
-
 }

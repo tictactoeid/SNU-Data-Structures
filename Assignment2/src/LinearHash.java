@@ -23,7 +23,7 @@ public class LinearHash {
 
     // cannot use long because of ArrayList idx range
     if (hashBase >= splitindex) {
-      if (hashtable.get(hashBase).contains(word)) return -1;
+      if (hashtable.get(hashBase).contains(word)) return -1; // already contains
 
       if (!hashtable.get(hashBase).isEmpty()) { // collision
         hashtable.get(hashBase).add(word);
@@ -44,7 +44,7 @@ public class LinearHash {
         }
       }
       else {
-        hashtable.get(hashBase).add(word);
+        hashtable.get(hashBase).add(word); // no collisions
       }
       return hashBase;
     }
@@ -93,9 +93,9 @@ public class LinearHash {
           return hashtable.get(hashExtended).size();
         }
       }
-      return -1 * hashtable.get(hashExtended).size();
+      return -1 * hashtable.get(hashExtended).size(); // not found
     }
-    return -1 * hashtable.get(hash).size();
+    return -1 * hashtable.get(hash).size(); // not found
   } // look up `word' in the Hash table.
 
   public int wordCount() {
@@ -114,7 +114,7 @@ public class LinearHash {
   }
   public int size() {
     return hashtable.size();
-  }			// 2^k + collisions in the current round
+  }
   public void print() {
     for (int i=0; i<hashtable.size(); i++) {
       System.out.print("["+i+":");
