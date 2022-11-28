@@ -126,16 +126,13 @@ public class MovieNet {
 
   // [Q1]
   public String[] moviesby(String[] actors) {
+    HashSet<String> actorSet = new HashSet<>(Arrays.asList(actors));
+    for (String actor: actorSet) {
+      if (!this.actors.contains(actor)) return null;
+    }
+
     HashSet<String> moviesby = new HashSet<>(this.actorMovieRelations.get(actors[0]));
-    Set<String> actorSet = Set.of(actors);
-    /*for (String movie: this.movies) {
-      for (String actor: actors) {
-        if (!this.movieActorRelations.get(movie).contains(actor)) {
-          continue;
-        }
-        moviesby.add(movie);
-      }
-    }*/
+
     for (String actor: actorSet) { // iterating set is faster maybe?
       moviesby.retainAll(this.actorMovieRelations.get(actor));
     }
@@ -145,8 +142,12 @@ public class MovieNet {
 
   // [Q2]
   public String[] castin(String[] titles) {
+    HashSet<String> titleSet = new HashSet<>(Arrays.asList(titles));
+    for (String movie: titleSet) {
+      if (!this.movies.contains(movie)) return null;
+    }
+
     HashSet<String> castin = new HashSet<>(this.movieActorRelations.get(titles[0]));
-    Set<String> titleSet = Set.of(titles);
     for (String movie: titleSet) {
       castin.retainAll(this.movieActorRelations.get(movie));
     }
@@ -156,10 +157,14 @@ public class MovieNet {
 
   // [Q3]
   public String[] pairmost(String[] actors) {
+    //if (this.movieActorRelations.isEmpty()) return null;
+    //if (this.actorMovieRelations.isEmpty()) return null;
     String[] maxPair = new String[2];
     int max = 0;
     for (int i=0; i<actors.length; i++) {
+      if (!this.actors.contains(actors[i])) continue;
       for (int j=i+1; j<actors.length; j++) {
+        if (!this.actors.contains(actors[j])) continue;
         String[] actorPair = new String[2];
         actorPair[0] = actors[i];
         actorPair[1] = actors[j];
