@@ -1,4 +1,205 @@
-CPU time to construct a MovieNet Database: 234 millisec
-The number of shortest paths between Haddrick, Roy/Broadhurst, Spence : 0
-The number of shortest paths between Houvouras, Anghus/Lackey, Brad : 0
-The number of shortest paths between Levitt, John/Glaser, Paul Michael : 1
+CPU time to construct a MovieNet Database: 203 millisec
+A shortest path from Haddrick, Roy to Broadhurst, Spence : (null)
+A shortest path from Houvouras, Anghus to Lackey, Brad : (null)
+A shortest path from Levitt, John to Glaser, Paul Michael : Levitt, John -> Goorney, Howard -> Glaser, Paul Michael
+A shortest path from Rojas III, Rafael to Levinson, Charlotte : Rojas III, Rafael -> Ganzel, Teresa -> Newman, Laraine -> Levinson, Charlotte
+A shortest path from Montgomery, Pricilla to Chadwick, Robin : Montgomery, Pricilla -> Monty, Harry -> Heston, Charlton -> Chadwick, Robin
+A shortest path from Deal, Bill (II) to Henry, Michael Tyler : Deal, Bill (II) -> Jones, Ben (I) -> Briggs, Charlie -> Reynolds, Debbie (I) -> Soucie, Kath -> Dorn, Patrick -> Henry, Michael Tyler
+A shortest path from Barr, Karen to Carsten, Peter : Barr, Karen -> Pancake, Roger -> Whitmore, James -> Furia, Giacomo -> Carsten, Peter
+A shortest path from Ruscio, Al to Tajima, Reiko : Ruscio, Al -> Hoyt, John (I) -> Sayre, Jeffrey -> Ogawa, Yasuzo -> Tajima, Reiko
+A shortest path from Magwood, Robbie to Monk, Roland : Magwood, Robbie -> Polley, Sarah -> Balutin, Jacques -> Monk, Roland
+A shortest path from Blake, Julia (I) to Urquhart, Molly : Blake, Julia (I) -> Clarke, Basil -> Mann, Danny (I) -> Hurt, John -> Urquhart, Molly
+A shortest path from Stanley, Ralph (I) to Sui, Kam Wong : (null)
+A shortest path from No?, Giorgio to Carol, Martine : No?, Giorgio -> Cleese, John -> Morley, Robert (I) -> Carol, Martine
+A shortest path from Dukelow, Peter to Medford, Kay : Dukelow, Peter -> Sharif, Omar -> Medford, Kay
+A shortest path from Kavanagh, Michael C. to von Friedl, Loni : Kavanagh, Michael C. -> Rainey, Ford -> Di Reda, Joe -> Lom, Herbert -> von Friedl, Loni
+A shortest path from Brown, Clancy to Donner, Jack : Brown, Clancy -> Lawrence, Andrew (I) -> Donner, Jack
+A shortest path from Morgan, John (I) to Erwin, Bill : Morgan, John (I) -> Erwin, Bill
+A shortest path from Wellman, James to Lilly, Alan : Wellman, James -> Cross, Dennis -> Rooney, Mickey (I) -> Lilly, Alan
+A shortest path from Sabe, Jimmy to Bonucci, Alberto : Sabe, Jimmy -> James, Sid (I) -> Audley, Maxine -> Palmer, Renzo -> Bonucci, Alberto
+A shortest path from Pimentel, Heleen to Porterfield, Robert : Pimentel, Heleen -> Bikel, Theodore -> Moore, Terry (I) -> Lockhart, June -> Porterfield, Robert
+A shortest path from Moore, Carl (I) to Granger, Marc : Moore, Carl (I) -> Taylor, Elizabeth (I) -> Naismith, Laurence -> Granger, Marc
+A shortest path from Bridgeman, Julia to January, Lois : Bridgeman, Julia -> Simon, Charles (II) -> Morley, Robert (I) -> Houghton, Shep -> January, Lois
+A shortest path from Whitney, Bob to Blackwell, Emma : Whitney, Bob -> Johns, Glynis -> Malet, Arthur -> Blackwell, Emma
+A shortest path from Timoushin, Alec to Easton, Robert (I) : Timoushin, Alec -> Kelly, Grace (I) -> Rooney, Mickey (I) -> Easton, Robert (I)
+A shortest path from Castle, Nick (I) to Webb, David (I) : (null)
+A shortest path from Hiraga, Yoshio to Easton, Sheena : Hiraga, Yoshio -> Tellegen, Mike -> Camp, Hamilton -> Easton, Sheena
+A shortest path from Hannon, Betty to Horvath, Jan : Hannon, Betty -> Charisse, Cyd -> Lansbury, Angela -> Horvath, Jan
+A shortest path from Hillier, Steven to Mobley, Roger : Hillier, Steven -> Conway, Tim (I) -> Mobley, Roger
+A shortest path from MacIntyre, Gandhi to Schultz, Joel : MacIntyre, Gandhi -> Mann, Danny (I) -> Shatner, William -> Schultz, Joel
+A shortest path from Waring, Joseph to Tobin, John H. : (null)
+A shortest path from Dalton, Patti to Whittingham, Eve : Dalton, Patti -> Morley, Robert (I) -> Whittingham, Eve
+A shortest path from Walia, Sandeep to Horn, Beverley : Walia, Sandeep -> Malet, Arthur -> Korey, Alix -> Paul, Andrew (I) -> Horn, Beverley
+A shortest path from N?methy, Attila to Stratford, Caroline : N?methy, Attila -> Kemp, Anthony -> Kingsley, Nigel (I) -> Stratford, Caroline
+A shortest path from Hudd, Roy to Manon, Gloria : Hudd, Roy -> Griffin, David (I) -> Comer, John (I) -> Woods, Aubrey -> Manon, Gloria
+A shortest path from Whisenhunt, Larry to Rey, Fernando (I) : Whisenhunt, Larry -> Engel, Roy -> Wexler, Paul (I) -> Ansara, Michael -> Rey, Fernando (I)
+A shortest path from Medford, Kay to Silvestri, Ellen : (null)
+A shortest path from Primosig, Jesse to Mulholland, Gordon : Primosig, Jesse -> Panettiere, Hayden -> McDowall, Roddy -> Currie, Finlay -> Mulholland, Gordon
+A shortest path from Bisacco, Roberto to Funari, Augusto : Bisacco, Roberto -> Billa, Salvatore -> Meniconi, Furio -> Bonos, Luigi -> Funari, Augusto
+A shortest path from Hillenburg, Andy to Clarke, Robert (I) : Hillenburg, Andy -> Bell, E.E. -> Van Patten, Dick -> Rubin, Benny -> Clarke, Robert (I)
+A shortest path from Margetts, Monty to Chang, Guifa : (null)
+A shortest path from Prout, Jennifer to Loncar, Beba : (null)
+A shortest path from Leonard, Peggy to Hamilton, Murray (I) : Leonard, Peggy -> Brown, Wanda (I) -> Vaughn, Robert (I) -> Hamilton, Murray (I)
+A shortest path from Benoit, Mary to Gray, Elspet : Benoit, Mary -> Farnum, Franklyn -> Howard, Trevor (I) -> Redgrave, Michael -> Gray, Elspet
+A shortest path from Hunter, Julie (I) to Tamura, Fumi : Hunter, Julie (I) -> Garner, James -> O'Brien, William H. -> Tamura, Fumi
+A shortest path from Montalb?n, Carlos to Murakami, Fuyuki : Montalb?n, Carlos -> Nichols, Robert (I) -> Adams, Nick (I) -> Murakami, Fuyuki
+A shortest path from Michaelevski, Cliff to Thornton, Cyril : Michaelevski, Cliff -> LuPone, Robert -> Adam, Ronald -> Harris, Sam (II) -> Thornton, Cyril
+A shortest path from Blackwell, David (I) to Kenzle, Ken : Blackwell, David (I) -> Morgan, Trevor (I) -> Hearn, George -> DeLuise, Dom -> Mills, Hayley -> Carroll, Leo G. -> Bradford, Jim -> Kenzle, Ken
+A shortest path from Brown, Jack (II) to Vernon, John (I) : (null)
+A shortest path from Eisley, Anthony to Lohr, Marie : Eisley, Anthony -> Morton, Clive -> Hawkins, Jack -> Lohr, Marie
+A shortest path from Barr, Patrick to Barrymore, John (I) : Barr, Patrick -> McDowall, Roddy -> Barrymore, John (I)
+A shortest path from Scofield, Paul (I) to Taylor, Deems : Scofield, Paul (I) -> Welles, Orson -> Martin, Steve (I) -> Taylor, Deems
+A shortest path from Boockvor, Steve to Hendry, Miriam : Boockvor, Steve -> Molinare, Richard -> Flower, George 'Buck' -> Larsen, Ham -> Hendry, Miriam
+A shortest path from Wolter, Ralf to Merrill, Tommy (I) : Wolter, Ralf -> Spoljar, Branko -> Reincke, Heinz -> Wattis, Richard -> Merrill, Tommy (I)
+A shortest path from Johnson, Leroy (II) to Gould, Harold (I) : Johnson, Leroy (II) -> Sayre, Jeffrey -> Gould, Harold (I)
+A shortest path from Laws, Jennifer (I) to Fischbach, Erica : Laws, Jennifer (I) -> Stevans, Norman -> Adam, Ronald -> Harris, Julie (I) -> Fischbach, Erica
+A shortest path from Charlie, Squeeze Box to Waterman, Stan : (null)
+A shortest path from Telienki, Ryan to Shibuya, Hideo : Telienki, Ryan -> Van Patten, Dick -> Romero, Cesar (I) -> Omae, Wataru -> Shibuya, Hideo
+A shortest path from Fullerton, Fiona to Plaksin, Vasili : Fullerton, Fiona -> Mills, John (I) -> Hawkins, Jack -> Plaksin, Vasili
+A shortest path from Bartlett, Craig to Orjas, Jos? : Bartlett, Craig -> Whitmore, James -> Rivera, Luis (III) -> Orjas, Jos?
+A shortest path from Bradley, Lisa to Allan, Roger : Bradley, Lisa -> Shawn, Wallace -> Welker, Frank -> Nichols, Robert (I) -> Allan, Roger
+A shortest path from Warren, Tracy Venner to Twaha, Ali : Warren, Tracy Venner -> Richardson, Ian (I) -> Simon, Charles (II) -> Savident, John -> McKenna, Virginia -> Twaha, Ali
+A shortest path from Fields, Cornell to VeSota, Bruno : Fields, Cornell -> Strode, Woody -> Wilcox, Frank -> VeSota, Bruno
+A shortest path from Bugiewicz, Carole to Kirksey, Iris : Bugiewicz, Carole -> Pancake, Roger -> Berti, Dehl -> Macollum, Barry -> Kirksey, Iris
+A shortest path from Maruyama, Hiroko (I) to Skersick, Susan : Maruyama, Hiroko (I) -> McClurg, Edie -> Rocco, Alex -> Scott, Tom (II) -> Skersick, Susan
+A shortest path from Larsen, Ham to Hinz, Werner : Larsen, Ham -> Begg, Jim -> McDowall, Roddy -> Hinz, Werner
+A shortest path from Carthen, Andr? to Adams, Peter (I) : (null)
+A shortest path from Trueb, Nicholas to Sasso, Ugo : (null)
+A shortest path from Juttner, Shelly to Malland, Alf : (null)
+A shortest path from Pennington, Ty to Meredith, Robin : Pennington, Ty -> Key, Tom (I) -> Camp, Hamilton -> Jay, Tony -> Meredith, Robin
+A shortest path from Boockvor, Steve to Greener, Dorothy : Boockvor, Steve -> Dennen, Barry -> Zorich, Louis -> Greener, Dorothy
+A shortest path from Yonten, Pema to Ford, Fritz : (null)
+A shortest path from Anderson, Dan (III) to Prior, Diane : (null)
+A shortest path from Fraser, Liz to Palmer, Renzo : Fraser, Liz -> Le Mesurier, John -> Kinnear, Roy -> Delfosse, Raoul -> Palmer, Renzo
+A shortest path from Rechenberg, Otto to Dalton, Abby : Rechenberg, Otto -> Burton, Norman -> Monty, Harry -> Devine, Andy (I) -> Dalton, Abby
+A shortest path from Gillis, Ann (I) to Cokes, Bud : Gillis, Ann (I) -> Holloway, Sterling -> Durfee, Minta -> Cokes, Bud
+A shortest path from Furukawa, Yoneka to Hong, Allen D. : Furukawa, Yoneka -> Howard, Trevor (I) -> Cleese, John -> Wylie, Adam -> Hong, Allen D.
+A shortest path from Wilson, Dorien to Schon, Kevin : Wilson, Dorien -> Fagerbakke, Bill -> Cummings, Jim (I) -> Sabella, Ernie -> Schon, Kevin
+A shortest path from Joyner, Jackie (I) to Armen, Kay : (null)
+A shortest path from Cotsworth, Staats to Douglass, Pi : Cotsworth, Staats -> Zorich, Louis -> Dennen, Barry -> Douglass, Pi
+A shortest path from Harvey, Tom (I) to Perce, Fred : Harvey, Tom (I) -> Bikel, Theodore -> Horan, James W. -> Perce, Fred
+A shortest path from Hollingshead, Megan to Singh, Parsan : Hollingshead, Megan -> Yamadera, K?ichi -> McClurg, Edie -> Jay, Tony -> Stoll, David -> Singh, Parsan
+A shortest path from Hart, Susan (I) to Jeffreys, Anne : Hart, Susan (I) -> Riordan, Christopher -> Olaf, Pierre -> Schreiber, Avery -> Jeffreys, Anne
+A shortest path from Wilson, Dick (I) to Gagliardi, Vito : Wilson, Dick (I) -> Vincent, Jan-Michael -> Carey Jr., Harry -> Bonos, Luigi -> Gagliardi, Vito
+A shortest path from Osmond, Jimmy to Dodson, Jon (II) : Osmond, Jimmy -> Osmond, Cliff -> Monty, Harry -> Dodson, Jon (II)
+A shortest path from Ware, Rachel to Adlon, Pamela : (null)
+A shortest path from Houghton, Nerise to Carr, John K. : Houghton, Nerise -> Hunt, Richard (I) -> DeLuise, Dom -> Carr, John K.
+A shortest path from Tajima, Reiko to Artyomova, Galina : Tajima, Reiko -> Ogawa, Yasuzo -> Ahn, Philip (I) -> Browne, Roscoe Lee -> Senkevich, Yuri -> Artyomova, Galina
+A shortest path from Buiret, Daniel to Armstrong, Ray (I) : (null)
+A shortest path from Truffaut, Eva to Evans, Mike (I) : (null)
+A shortest path from Paull, Morgan to O'Byrne, Bryan : Paull, Morgan -> O'Byrne, Bryan
+A shortest path from Harmon, Manny to Drake, Dick (I) : Harmon, Manny -> Kahn, Madeline -> McGowan, Mickie -> Conforti, Gino -> Drake, Dick (I)
+A shortest path from Cowan, Ashley to Mazstead, Mary : Cowan, Ashley -> Howard, Trevor (I) -> Mazstead, Mary
+A shortest path from Roebke, Carroll to Tinne, Alex : Roebke, Carroll -> Cabot, Ceil -> Tinne, Alex
+A shortest path from Vazquez, Claudia to H?nin, Georges : (null)
+A shortest path from Rolfe, Guy (I) to Palacios, Ricardo : Rolfe, Guy (I) -> Blanc, Mel -> Lester, Mark (I) -> Palacios, Ricardo
+A shortest path from Zeman, Milan to Sk?nberg, Jo : (null)
+A shortest path from Holmes, Wendell (I) to Meunier, Monique : Holmes, Wendell (I) -> Hewitt, Alan (I) -> Welker, Frank -> Kline, Kevin -> Meunier, Monique
+A shortest path from Daniels, J.D. to Duncan, Peter (I) : Daniels, J.D. -> Wright, Ben (I) -> Hordern, Michael -> Duncan, Peter (I)
+A shortest path from Robinson, Susan (III) to Walsh, Johnny (I) : Robinson, Susan (III) -> Brazzi, Rossano -> Lawrence, Marc (I) -> Guhl, George -> Walsh, Johnny (I)
+A shortest path from Rivera, Jonas to Sweeten, Madylin : Rivera, Jonas -> Hanks, Tom -> Sweeten, Madylin
+A shortest path from Reid, Sue (I) to Logan, Frank (I) : Reid, Sue (I) -> Copley, Peter -> McCallum, David (I) -> Logan, Frank (I)
+A shortest path from Cabeen, Boyd to Tzvetarski, Ivan : (null)
+A shortest path from Nakado, Kico to Kurtz, Shelly (I) : Nakado, Kico -> Gingold, Hermione -> Howard, Rance -> Kurtz, Shelly (I)
+A shortest path from North, Heather to Singh, Mohan (I) : North, Heather -> Farley, Morgan -> McDowall, Roddy -> Lee, Christopher (I) -> Singh, Mohan (I)
+A shortest path from Gibson, Mimi to del Pozo, ?ngel : Gibson, Mimi -> Robinson, Edward G. -> Rietty, Robert -> del Pozo, ?ngel
+A shortest path from Bett, John (I) to Jones, Harriet (I) : Bett, John (I) -> Gold, Louise -> Curry, Tim (I) -> Jones, Harriet (I)
+A shortest path from Reed, Mack to Bigelow, Edward : Reed, Mack -> Wills, Chill -> Withers, Jane -> Kline, Kevin -> Bigelow, Edward
+A shortest path from Harvey, Michael Louis to Torn, Rip : Harvey, Michael Louis -> Thomas, Van?ese Y. -> Torn, Rip
+A shortest path from Abineri, Daniel to Rode, Walter : Abineri, Daniel -> Plummer, Christopher (I) -> Harris, Sam (II) -> Rode, Walter
+A shortest path from Rivera, Jonas to Brazier, Fergus : Rivera, Jonas -> Peterson, Bob (III) -> Oz, Frank -> Brazier, Fergus
+A shortest path from Brazzi, Rossano to Carpenter, Beth : Brazzi, Rossano -> Caine, Michael (I) -> Nelson, Jerry (I) -> Deezen, Eddie -> Carpenter, Beth
+A shortest path from Lowry, Morton (I) to Harris, Eliza : Lowry, Morton (I) -> Hodgson, Leyland -> Lansbury, Angela -> Kline, Kevin -> Reznick, Peter (I) -> Harris, Eliza
+A shortest path from Hines, Gregory to Bitenc, Demeter : Hines, Gregory -> Hunt, Richard (I) -> Welles, Orson -> Bitenc, Demeter
+A shortest path from Schneider, Mark (I) to Lehmann, Edie : Schneider, Mark (I) -> Darden, Severn -> McDowall, Roddy -> Welker, Frank -> Lehmann, Edie
+A shortest path from Pierce, Bradley to Stevens, Alta M. : Pierce, Bradley -> Lansbury, Angela -> Wilson, Harry (I) -> Stevens, Alta M.
+A shortest path from Anderson, Robert G. (I) to Dietrich, Dena : Anderson, Robert G. (I) -> Hackett, Joan -> Dietrich, Dena
+A shortest path from Maurice, Marcus to Puckett, Don : Maurice, Marcus -> Kind, Richard -> Messick, Don -> Vigran, Herb -> Puckett, Don
+A shortest path from Patterson, Barbara June to Horsley, John : Patterson, Barbara June -> Farnsworth, Richard -> Heston, Charlton -> Horsley, John
+A shortest path from Waldhorn, Gary to Massine, L?onide : Waldhorn, Gary -> Coleman, Bryan (I) -> Mordente, Tony -> Massine, L?onide
+A shortest path from Hanna, Elizabeth to Marciano, Harry : Hanna, Elizabeth -> Carlson, Len -> Goldberg, Whoopi -> Bouchard, Raymond -> Leboeuf, Marcel -> Marciano, Harry
+A shortest path from Maggio, Enzo to Hart, Maurice : Maggio, Enzo -> Pleasence, Donald -> Heston, Charlton -> Hart, Maurice
+A shortest path from Ryan, Robert (I) to Golden, Annie : Ryan, Robert (I) -> Ramsey, Ian -> Wallis, Shani -> Golden, Annie
+A shortest path from Hiramatsu, Shoshi to Malet, Arthur : Hiramatsu, Shoshi -> Yamadera, K?ichi -> McClurg, Edie -> Malet, Arthur
+A shortest path from Henson, Jim (I) to Moreno, Antonio (I) : Henson, Jim (I) -> Gould, Elliott -> Bissell, Whit -> Moreno, Antonio (I)
+A shortest path from Neal, Patricia to Robinson, Joey (II) : Neal, Patricia -> Evans, Charles (IV) -> Robinson, Joey (II)
+A shortest path from Brown, Jacqueline (III) to Arden, Robert (I) : Brown, Jacqueline (III) -> Whitehead, Paxton -> Blanc, Mel -> Brown, Phil (I) -> Arden, Robert (I)
+A shortest path from Woodnutt, John to Angarola, Richard : Woodnutt, John -> Kettlewell, Ruth -> Morton, Clive -> Angarola, Richard
+A shortest path from Nightingale, Arthur to Matson, Katy : Nightingale, Arthur -> Jay, Tony -> Lawrence, Andrew (I) -> Robertson, Cliff -> Matson, Katy
+A shortest path from Harris, Mike (III) to Greenfield, Calvin : Harris, Mike (III) -> Taylor, Russi -> McDowall, Roddy -> Darden, Severn -> Greenfield, Calvin
+A shortest path from Hallier, Lori to Ingram, Donna Patrice : Hallier, Lori -> Conn, Didi -> Dooley, Paul -> Brown, Johnny -> Ingram, Donna Patrice
+A shortest path from Brewers, Sarah to Thompson, Rudy : (null)
+A shortest path from Bayer, Rolf to Scales, Prunella : Bayer, Rolf -> Merrill, Gary -> Benson, Lucille -> Agutter, Jenny -> Scales, Prunella
+A shortest path from Ave, Steve to Baker, Benjamin Scott : (null)
+A shortest path from Kirschner, Alexis (I) to Rhythmettes, The : Kirschner, Alexis (I) -> Erdman, Richard (I) -> Whitmore, James -> Monty, Harry -> Rhythmettes, The
+A shortest path from DeMenno, Lou to Munro, Caroline : DeMenno, Lou -> O'Moore, Patrick -> Harrison, Rex (I) -> Aslan, Gr?goire -> Munro, Caroline
+A shortest path from Bose, Rajesh to Valdez, Jorge (I) : (null)
+A shortest path from Burton Jr., John (II) to Champion, Jean : (null)
+A shortest path from Chen, Christopher (IV) to Seaton, Violet : Chen, Christopher (IV) -> Van Dyke, Dick -> Lloyd, Doris -> Seaton, Violet
+A shortest path from Dodge Twins, The to LaVere, June : Dodge Twins, The -> Keaton, Buster -> LaVere, June
+A shortest path from O'Neal, Kevin (I) to Lang, Christa : O'Neal, Kevin (I) -> Lang, Christa
+A shortest path from Flinn III, John C. to Ryan, Edmon : Flinn III, John C. -> Brooke, Walter -> Ryan, Edmon
+A shortest path from Clements, Stanley to Dawkins, Paul (I) : Clements, Stanley -> Rothwell, Robert -> Romero, Cesar (I) -> Dawkins, Paul (I)
+A shortest path from Canipe, Ridge to Zagaria, Anita : Canipe, Ridge -> Breslin, Spencer -> Dorsey, Kevin -> Zagaria, Anita
+A shortest path from Meehan, Christopher (II) to Tudor, Jennifer : Meehan, Christopher (II) -> Sabara, Evan -> Deezen, Eddie -> Plummer, Christopher (I) -> Hopkins, Anthony -> Tudor, Jennifer
+A shortest path from Stamps, Larry to Leonard, Peggy : Stamps, Larry -> Leonard, Peggy
+A shortest path from Christie, Linford to Leigh, Janet : (null)
+A shortest path from Kekoa, Sterling to Bowson, Stephen : Kekoa, Sterling -> Harris, Julie (I) -> Rooney, Mickey (I) -> Bowson, Stephen
+A shortest path from Travis, Bill to Friedman, Tony (II) : Travis, Bill -> Briggs, Charlie -> Tamblyn, Russ -> Friedman, Tony (II)
+A shortest path from Nicholas, Siobhan to Jamaan, Natja : Nicholas, Siobhan -> Jay, Tony -> Cummings, Jim (I) -> Begley Jr., Ed -> Jamaan, Natja
+A shortest path from O'Brien, Niall to Muglia, Nick : O'Brien, Niall -> Brannick, Dick -> MacReady, Carol -> Kline, Kevin -> Reznick, Peter (I) -> Muglia, Nick
+A shortest path from Pierson, Kate to Monroe, Tom (I) : Pierson, Kate -> Proctor, Phil -> Barrie, Barbara -> Monroe, Tom (I)
+A shortest path from Mills, Hayley to Ranftl, Sarina : Mills, Hayley -> Reilly, Charles Nelson -> Vogt, Paul (II) -> Ranftl, Sarina
+A shortest path from Hathaway, Jessica to Forrest, Otto : Hathaway, Jessica -> Gielgud, John -> Forrest, Otto
+A shortest path from Fricker, Bill to Friedman, Stanton : (null)
+A shortest path from Spreckley, Arthur to Moulinot, Jean-Paul : (null)
+A shortest path from Moustache to B?rub?, Jocelyn : Moustache -> Albertini, Giampiero -> Poli, Maurice -> Wagner, Robert (I) -> Goldberg, Whoopi -> Bouchard, Raymond -> Leboeuf, Marcel -> B?rub?, Jocelyn
+A shortest path from Hilton, Robyn (I) to O'Shea, Milo (I) : Hilton, Robyn (I) -> Frees, Paul -> Lee, Christopher (I) -> O'Shea, Milo (I)
+A shortest path from Merritt, Russell (I) to Parks, Leona M. : Merritt, Russell (I) -> Lasseter, John -> McDowall, Roddy -> Monty, Harry -> Parks, Leona M.
+A shortest path from Mackleprang, William to Hackenberger, Thomas : Mackleprang, William -> Oates, Warren -> Westerfield, James -> Clarke, Gage -> Votrian, Ralph -> Hackenberger, Thomas
+A shortest path from Balbina (I) to Verstraete, Guus (I) : Balbina (I) -> Chaplin, Josephine -> Kenny, Colin -> Bikel, Theodore -> Verstraete, Guus (I)
+A shortest path from Hutton, Rif to Mascherini, Enzo : (null)
+A shortest path from Hoover, Kelly to Marine, Bill : Hoover, Kelly -> Cowgill, Makenna -> Welker, Frank -> Lasley, David -> Marine, Bill
+A shortest path from Newmark, Paul to Cassidy, Ed (I) : Newmark, Paul -> Jones, Ben (I) -> Briggs, Charlie -> Sands, Danny -> Worden, Hank -> Cassidy, Ed (I)
+A shortest path from Dickinson, Sandra to Houde, Joe : Dickinson, Sandra -> Cavanaugh, Christine -> Curry, Tim (I) -> Herskowitz, Brian -> Houde, Joe
+A shortest path from Sidumo, Henry to Franculescu, Dan : (null)
+A shortest path from McCary, Rod to Wakabayashi, Go : McCary, Rod -> Lukas, Karl -> Igawa, Hisashi -> Wakabayashi, Go
+A shortest path from Hale, Creighton to Fishman, Duke : Hale, Creighton -> Hamilton, Chuck (I) -> Fishman, Duke
+A shortest path from Rickles, Don to Larson, Jean (I) : Rickles, Don -> Gielgud, John -> Larson, Jean (I)
+A shortest path from Gross, Mary to Cromwell, James (I) : Gross, Mary -> Cavanaugh, Christine -> Cromwell, James (I)
+A shortest path from Stewart, Patrick (I) to Theodore, Diana : Stewart, Patrick (I) -> Ward, B.J. (II) -> Kidder, Margot -> Theodore, Diana
+A shortest path from Szirtes, ?d?m to Morton, Gregory : Szirtes, ?d?m -> Bessenyei, Ferenc -> Lynde, Paul -> Morton, Gregory
+A shortest path from Pendleton, Charles (I) to Michenaud, Jean-Michel : Pendleton, Charles (I) -> Johnson, Leroy (II) -> Michenaud, Jean-Michel
+A shortest path from Garver, Kathy to Travis, Len : Garver, Kathy -> Heston, Charlton -> Lupton, John -> Travis, Len
+A shortest path from Thorpe, Ken to Barth, Eddie : Thorpe, Ken -> Howard, Trevor (I) -> Cosmo, James -> Barth, Eddie
+A shortest path from Bexley, Don to Michaeli, Elisheva : (null)
+A shortest path from Quan, Thomas Y. to Sopwith, Sally : Quan, Thomas Y. -> Roosevelt, Buddy -> Whitmore, James -> Sopwith, Sally
+A shortest path from Jacquet, Jeffrey to Clayton, Johnnie : Jacquet, Jeffrey -> Lee, Christopher (I) -> Steiner, Marcel -> Clayton, Johnnie
+A shortest path from Hutton, Rif to Gelley, Korn?l : Hutton, Rif -> Van Dyke, Dick -> Lynde, Paul -> Major, Tam?s -> Gelley, Korn?l
+A shortest path from Ristic, Suzanne to Hope, Dawn : Ristic, Suzanne -> Conway, Tim (I) -> Erickson, Bill -> Kinnear, Roy -> Hope, Dawn
+A shortest path from DeGideo, April to Leeper, Patricia : (null)
+A shortest path from Howat, Clark to November, Linda : Howat, Clark -> Hayes, Helen (I) -> McCann, Chuck (I) -> November, Linda
+A shortest path from McKenzie, Kevin (I) to Sturgess, Olive : McKenzie, Kevin (I) -> Hepburn, Katharine -> Champion, Gower -> Lorre, Peter (I) -> Sturgess, Olive
+A shortest path from Goble, Diane to Franciscus, James : Goble, Diane -> Elg, Taina -> Astaire, Fred -> Franciscus, James
+A shortest path from Cei, Pina to Baker, Nate (I) : Cei, Pina -> Cesti?, Renato -> Cusack, Cyril -> Margolyes, Miriam -> Takei, George -> Baker, Nate (I)
+A shortest path from Armstrong, R.G. to Omae, Wataru : Armstrong, R.G. -> Bacon, James -> Dillman, Bradford -> Omae, Wataru
+A shortest path from Dill, Wallace M. to Bradford, Spencer : Dill, Wallace M. -> Sell, Bernard -> Morley, Robert (I) -> Tyson, Cicely -> Bradford, Spencer
+A shortest path from Brooks, Christopher (I) to Lanchester, Elsa : (null)
+A shortest path from Kane, Thomas (I) to Callahan, Julius : Kane, Thomas (I) -> Hopkins, Bo -> Proctor, Phil -> Waters, Oren -> Callahan, Julius
+A shortest path from Stevenson, Bob (I) to Eaton, Janis : Stevenson, Bob (I) -> Lawford, Peter -> Johnson, Van (I) -> Eaton, Janis
+A shortest path from McCann, Les to Mitchum, John : McCann, Les -> Flack, Roberta -> Walker, Bill (I) -> Cabot, Bruce (I) -> Mitchum, John
+A shortest path from Van Cleef, Lee to Matusiak, Michael J. : Van Cleef, Lee -> Reynolds, Debbie (I) -> Lawrence, Matthew (I) -> Robertson, Cliff -> Matusiak, Michael J.
+A shortest path from Attles, Joseph to Eltaeva, Lola : (null)
+A shortest path from Boorem, Mika to Fleischer, Charles : Boorem, Mika -> Smart, Jean -> Welker, Frank -> Fleischer, Charles
+A shortest path from Sasaki, George to Judd, Edward : Sasaki, George -> Singh, Reginald Lal -> Morell, Andr? -> Judd, Edward
+A shortest path from Takahashi, Atsuko (I) to Roberts, Larry (II) : Takahashi, Atsuko (I) -> Fujiki, Yu -> Tamblyn, Russ -> Lee, Bill (IV) -> Roberts, Larry (II)
+A shortest path from Felder, Isabelle to Love, Darlene : Felder, Isabelle -> P?rier, Fran?ois -> Drake, Colin (I) -> Helm, Peter (I) -> Wayland, Len -> Love, Darlene
+A shortest path from Blake, Julia (I) to Garcin, Henri : Blake, Julia (I) -> Clarke, Basil -> Cummings, Jim (I) -> Donda, Camille -> Lescot, Jean -> Garcin, Henri
+A shortest path from Lee-Sung, Richard to McGuinness, Rory (I) : Lee-Sung, Richard -> Soule, Olan -> Fiedler, John (I) -> Coogan, Keith -> McGuinness, Rory (I)
+A shortest path from Battin, Charlotte to De Veyra, Yani : (null)
+A shortest path from Rogers, Gayle to Thiess, Manuela : Rogers, Gayle -> Sorensen, Paul (II) -> Chandler, George (I) -> Thiess, Manuela
+A shortest path from Boyce, Rodger to Abbott, Philip : Boyce, Rodger -> Brown, Susan (I) -> Barry, Ivor -> Moore, Alvy -> Abbott, Philip
+CPU time to process queries : 28109 millisec
+
+Memory consumption: 358867248 bytes
+

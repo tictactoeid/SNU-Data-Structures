@@ -10,6 +10,8 @@ public class MovieNet {
   static final String KevinBacon = "Bacon, Kevin";
   HashSet<String> movies;
   HashSet<String> actors;
+  //HashMap<String, Integer> distance;
+  //HashMap<String, Integer> npath;
 
   HashMap<String, HashSet<String>> actorActorRelations; // {actor, {co-stared actors}}
   HashMap<String, HashSet<String>> movieActorRelations; // {movie, {actors}}
@@ -60,6 +62,14 @@ public class MovieNet {
         actorActorRelations.get(actor).addAll(movieActorRelations.get(movie));
       }
     }
+
+    /*this.distance = new HashMap<>();
+    this.npath = new HashMap<>();
+
+    for (String actor: this.actors) {
+      distance.put(actor, Integer.MAX_VALUE); // inf
+      npath.put(actor, 0);
+    } */
 
     /* System.out.print("actors: ");
     for (String actor: actors) {
@@ -207,119 +217,197 @@ public class MovieNet {
   }
 
   // [Q6]
-  public int npath(String src, String dst) { // it may be works but tooooooo slow
+  public int npath(String src, String dst) {
     if (src.equals(dst)) return 1;
     if (!actors.contains(src) || !actors.contains(dst)) return 0;
     // TODO
-    /*ArrayList<Integer> distance = new ArrayList<>();
-    ArrayList<Integer> npath = new ArrayList<>();
-    for (int i=0; i<actors.size(); i++) {
-      distance.add(i, 0);
-      npath.add(i, 0);
-    }
-    ArrayList<String> nodes = new ArrayList<>(actors);
-    HashSet<String> visited = new HashSet<>();
+
+    HashSet<String> visited = new HashSet<>(actors.size());
     LinkedList<String> queue = new LinkedList<>();
 
-    String current;
-    int currDist, nodeDist;
-    int currIdx, nodeIdx;
-    distance.set(nodes.indexOf(src), 0);
-    npath.set(nodes.indexOf(src), 1);
-    queue.offer(src);
-    visited.add(src);
+    HashMap<String, Integer> distance = new HashMap<>(actors.size());
+    HashMap<String, Integer> npath = new HashMap<>(actors.size());
 
+    //HashMap<String, ArrayList<Integer>> info = new HashMap<>(actors.size());
+    //[distance, npath]
+    for (String actor: this.actors) {
+      //info.put(actor, new ArrayList<Integer>(2));
+      //info.get(actor).add(0, Integer.MAX_VALUE); // distance
+      //info.get(actor).add(1, 0); // npath
+
+      distance.put(actor, Integer.MAX_VALUE);  // inf
+      npath.put(actor, 0);
+
+    }
+    npath.put(src, 1);
+    distance.put(src, 0);
+    //info.get(src).set(0, 0);
+    //info.get(src).set(1, 1);
+
+    String current = src;
+    queue.offer(current);
+    visited.add(current);
     while (!queue.isEmpty()) {
       current = queue.poll();
-      currIdx = nodes.indexOf(current);
-      currDist = distance.get(currIdx);
-
-      for (String node: this.actorActorRelations.get(current)) {
-        nodeIdx = nodes.indexOf(node);
-        nodeDist = distance.get(nodeIdx);
-        if (!visited.contains(node)) { // visit
+      for (String node : this.actorActorRelations.get(current)) {
+        // visit each node
+        if (!visited.contains(node)) {
           queue.offer(node);
           visited.add(node);
-          if (nodeDist == currDist + 1) {
-            npath.set(nodeIdx, npath.get(nodeIdx) + npath.get(currIdx));
-          }
-          else if (nodeDist > currDist + 1) { // update distance and npath
-            distance.set(nodeIdx, currDist+1);
-            npath.set(nodeIdx, npath.get(currIdx));
-          }
-        }
-        if (nodeDist == currDist + 1) {
-          npath.set(nodeIdx, npath.get(nodeIdx) + npath.get(currIdx));
-        }
-        else if (nodeDist > currDist + 1) { // update distance and npath
-          distance.set(nodeIdx, currDist+1);
-          npath.set(nodeIdx, npath.get(currIdx));
-        }
-      }
-    }
-    return npath.get(nodes.indexOf(dst));*/
-    int n = actors.size();
-    //String[] actorsArray = this.actors.toArray(new String[0]);
-    ArrayList<String> actorsList = new ArrayList<>(this.actors);
-    boolean[] visited = new boolean[n];
-    int[] distance = new int[n];
-    int[] npath = new int[n];
-    for (int i=0; i<n; i++) {
-      visited[i] = false;
-      npath[i] = 0;
-      distance[i] = Integer.MAX_VALUE; // inf
-    }
-    int srcIdx = actorsList.indexOf(src);
-    npath[srcIdx] = 1;
-    distance[srcIdx] = 1;
-    visited[srcIdx] = true;
-
-    LinkedList<Integer> queue = new LinkedList<>();
-    queue.offer(srcIdx);
-    int current, nodeIdx;
-    while (!queue.isEmpty()) {
-      current = queue.poll();
-      for (String node: this.actorActorRelations.get(actorsList.get(current))) {
-        nodeIdx = actorsList.indexOf(node);
-        if (!visited[nodeIdx]) { // visit
-          queue.offer(nodeIdx);
-          visited[nodeIdx] = true;
         }
         // update distance & npath
-        if (distance[nodeIdx] > distance[current]+1) { // shorter path exists
-          distance[nodeIdx] = distance[current] + 1;
-          npath[nodeIdx] = npath[current];
+        if (distance.get(node) > distance.get(current) + 1) {
+        //if (info.get(node).get(0) > info.get(current).get(0) + 1){
+          // shorter path exists: src ----> current -> node
+          distance.put(node, distance.get(current) + 1);
+          npath.put(node, npath.get(current));
+          //info.get(node).set(0, info.get(current).get(0) + 1);
+          //info.get(node).set(1, info.get(current).get(1));
         }
-        else if (distance[nodeIdx] == distance[current]+1) { // more paths with same distance
-          npath[nodeIdx] += npath[current];
+        else if (distance.get(node) == distance.get(current) + 1) { // more paths with same distance
+        //else if (info.get(node).get(0) == info.get(current).get(0) + 1){
+          npath.put(node, npath.get(node) + npath.get(current));
+          //info.get(node).set(1, info.get(current).get(1) + info.get(node).get(1));
         }
       }
     }
-    return npath[actorsList.indexOf(dst)];
-
+    return npath.get(dst);
+    //return info.get(dst).get(1);
   }
 
   // [Q7]
   public String[] apath(String src, String dst) {
-
-
     if (src.equals(dst)) {
       return new String[]{src};
     }
     if (!actors.contains(src) || !actors.contains(dst)) return null;
-    // TODO
-    return null;
+
+    HashSet<String> visited = new HashSet<>();
+    LinkedList<String> queue = new LinkedList<>();
+
+    HashMap<String, Integer> distance = new HashMap<>(actors.size());
+    //HashMap<String, Integer> npath = new HashMap<>(actors.size());
+    HashMap<String, String> before = new HashMap<>(actors.size());
+
+    for (String actor: this.actors) {
+      //int[] value = {Integer.MAX_VALUE, 0};
+      distance.put(actor, Integer.MAX_VALUE); // inf
+      before.put(actor, null);
+      //npath.put(actor, 0);
+    }
+    //npath.put(src, 1);
+    distance.put(src, 0);
+
+    String current = src;
+
+    queue.offer(current);
+    visited.add(current);
+    //path.add(src);
+
+    while (!queue.isEmpty()) {
+      current = queue.poll();
+      for (String node : this.actorActorRelations.get(current)) {
+        // visit each node
+        if (!visited.contains(node)) {
+          queue.offer(node);
+          visited.add(node);
+        }
+        // update distance & npath
+        if (distance.get(node) > distance.get(current) + 1) {
+          // shorter path exists: src ----> current -> node
+          distance.put(node, distance.get(current) + 1);
+          before.put(node, current);
+          //npath.put(node, npath.get(current));
+        }
+        if (node.equals(dst)) break;
+      }
+    }
+    if (before.get(dst)==null) return null;
+    String path = dst;
+    Stack<String> tmp = new Stack<>();
+
+    int i=0;
+    while (path != null) {
+      tmp.add(path);
+      path = before.get(path);
+    }
+    String[] apath = new String[tmp.size()];
+    while (!tmp.isEmpty()) {
+      apath[i++] = tmp.pop();
+    }
+    return apath;
   }
 
   // [Q8]
   public int eccentricity(String actor) {
-    return 0;
+    // similar with Q6
+    HashSet<String> visited = new HashSet<>(actors.size());
+    HashMap<String, Integer> distance = new HashMap<>(actors.size());
+    LinkedList<String> queue = new LinkedList<>();
+
+    for (String actor_: this.actors) {
+      distance.put(actor_, Integer.MAX_VALUE); // inf
+    }
+    distance.put(actor, 0);
+
+    String current = actor;
+    queue.offer(current);
+    visited.add(current);
+    while (!queue.isEmpty()) {
+      current = queue.poll();
+      for (String node : this.actorActorRelations.get(current)) {
+        if (!visited.contains(node)) {
+          queue.offer(node);
+          visited.add(node);
+        }
+        if (distance.get(node) > distance.get(current) + 1) {
+          distance.put(node, distance.get(current) + 1);
+        }
+      }
+    }
+
+    distance.values().removeAll(Collections.singleton(Integer.MAX_VALUE));
+    return Collections.max(distance.values());
   }
 
   // [Q9]
   public float closeness(String actor) {
-    return 0.0F;
+    // similar with Q6
+    HashSet<String> visited = new HashSet<>(actors.size());
+    HashMap<String, Integer> distance = new HashMap<>(actors.size());
+    LinkedList<String> queue = new LinkedList<>();
+
+    for (String actor_: this.actors) {
+      distance.put(actor_, Integer.MAX_VALUE);
+    }
+    distance.put(actor, 0);
+
+    String current = actor;
+    queue.offer(current);
+    visited.add(current);
+    while (!queue.isEmpty()) {
+      current = queue.poll();
+      for (String node : this.actorActorRelations.get(current)) {
+        if (!visited.contains(node)) {
+          queue.offer(node);
+          visited.add(node);
+        }
+        if (distance.get(node) > distance.get(current) + 1) {
+          distance.put(node, distance.get(current) + 1);
+        }
+      }
+    }
+
+    distance.values().removeAll(Collections.singleton(Integer.MAX_VALUE));
+    distance.remove(actor);
+    float closeness = 0.0F;
+    for (int dist: distance.values()) {
+      closeness += 1.0F / Math.pow(2, dist);
+    }
+    return closeness;
   }
+
+
 
 /*============================================================================*/
 

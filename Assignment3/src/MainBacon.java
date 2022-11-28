@@ -85,13 +85,13 @@ public class MainBacon {
 			+opnd[0]+"/" +opnd[1]+" : "
 			+hollywood.distance(opnd[0],opnd[1]));*/
 		break;
-	case 6: System.out.println("The number of shortest paths between "
+	case 6: /*System.out.println("The number of shortest paths between "
 			+opnd[0]+"/" +opnd[1]+" : "
-			+hollywood.npath(opnd[0],opnd[1]));
+			+hollywood.npath(opnd[0],opnd[1]));*/
 		break;
-	case 7: /*System.out.print("A shortest path from "
+	case 7: System.out.print("A shortest path from "
 			+opnd[0]+" to " +opnd[1]+" : ");
-			printPath(hollywood.apath(opnd[0],opnd[1]),"\n");*/
+			printPath(hollywood.apath(opnd[0],opnd[1]),"\n");
 		break;
 
 	case 8: /*System.out.println("Eccentricity of "+opnd[0]+" : "
