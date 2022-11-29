@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 578 millisec
+CPU time to construct a MovieNet Database: 171 millisec
 Which pair cast in Day the Earth Stood Still, The (1951) costarred most often? Harris, Sam (II)/Miller, Harold (I)
 Which pair cast in Tarzan (1999) costarred most often? Angel, Jack (I)/Lynn, Sherry (I)
 Which pair cast in Three Caballeros, The (1944) costarred most often? Colvig, Pinto/Nash, Clarence
@@ -142,7 +142,7 @@ Which pair cast in Magic in the Mirror (1996) costarred most often? Haiduc, Ion/
 Which pair cast in Dunderklumpen! (1974) costarred most often? Serner, H?kan/Wolgers, Beppe
 Which pair cast in Enemy of the People, An (1978) costarred most often? Begg, Jim/Medalis, Joseph G.
 Which pair cast in Pocahontas (1995) costarred most often? Cummings, Jim (I)/Welker, Frank
-CPU time to process queries : 187 millisec
+CPU time to process queries : 62 millisec
 
-Memory consumption: 139460608 bytes
+Memory consumption: 150734848 bytes
 

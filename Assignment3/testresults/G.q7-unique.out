@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 359 millisec
+CPU time to construct a MovieNet Database: 171 millisec
 A shortest path from Gooding, Ben (II) to Willis Jr., Charles : Gooding, Ben (II) -> Davis Jr., Sammy -> Willis Jr., Charles
 A shortest path from Grassom, Lilian to Geer, Ellen : Grassom, Lilian -> Chaplin, Charles -> Taylor, Elizabeth (I) -> Geer, Will -> Geer, Ellen
 A shortest path from Bridges, Rand to Bergman, Jeff (I) : Bridges, Rand -> Frees, Paul -> Messick, Don -> Bergman, Jeff (I)
@@ -88,7 +88,7 @@ A shortest path from Warwick, John (I) to Turner, Mell : Warwick, John (I) -> Ry
 A shortest path from Yarnell, Sally to Barrier, Ernestine : Yarnell, Sally -> Davis, Jack (I) -> Barrier, Ernestine
 A shortest path from Leroy, Philippe (I) to Petersen, Julie : Leroy, Philippe (I) -> Poli, Maurice -> Martin, Dewey -> Petersen, Julie
 A shortest path from Valderrama, Wilmer to Thompson, Adam (III) : Valderrama, Wilmer -> Reinhold, Judge -> Thompson, Adam (III)
-CPU time to process queries : 11937 millisec
+CPU time to process queries : 2156 millisec
 
-Memory consumption: 228515776 bytes
+Memory consumption: 295517176 bytes
 

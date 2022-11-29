@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 328 millisec
+CPU time to construct a MovieNet Database: 156 millisec
 Which movies were starred by Barzman, Alan/Bishop, John (I)/Hall, Cameron (I)/Hickey, Brenden/Whittington, Gene? (null)
 Which movies were starred by Doyle, Major? Wizard of Oz, The (1939)
 Which movies were starred by Lai, Alexandra/Pollack, Ulf? (null)
@@ -44,7 +44,7 @@ Closeness of Ming-Na : 2476.5
 Closeness of Shelley, Frank : 2540.625
 Closeness of Tensi, Francesco : 1497.5625
 Closeness of Urjindorj, Batchuluun : 2.0
-CPU time to process queries : 3015 millisec
+CPU time to process queries : 3078 millisec
 
-Memory consumption: 161117280 bytes
+Memory consumption: 167906520 bytes
 

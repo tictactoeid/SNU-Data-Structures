@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 578 millisec
+CPU time to construct a MovieNet Database: 140 millisec
 Bacon number of Fisher, David (I) : 4
 Eccentricity of Fisher, David (I) : 7
 Closeness of Fisher, David (I) : 1444.4766
@@ -899,7 +899,7 @@ A shortest path from Ellison, True to Williams, Harcourt : Ellison, True -> Roth
 Which movies were starred by Kadowaki, Saburo? Mekagojira no gyakushu (1975)
 Which pair cast in Spirit: Stallion of the Cimarron (2002) costarred most often? Bernet, Chopper/Levin, Matt (I)
 Who were cast in all the movie(s): Chilly's Hide-a-Way (1971)/Limelight (1952)? (null)
-CPU time to process queries : 56312 millisec
+CPU time to process queries : 56093 millisec
 
-Memory consumption: 204918104 bytes
+Memory consumption: 281840352 bytes
 

@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 15 millisec
+CPU time to construct a MovieNet Database: 0 millisec
 Which movies were starred by Barnes, Christopher Daniel? Little Mermaid, The (1989)
 Which movies were starred by Bell, Michael (I)? Cars (2006)
 Which movies were starred by Boerries, Andrea/Jillette, Penn/Korey, Alix/Shalhoub, Tony? (null)
@@ -179,7 +179,7 @@ Closeness of Unkrich, Lee : 92.375
 Closeness of Ward, Jay (V) : 94.0
 Closeness of Wheeler, H.A. 'Humpy' : 94.0
 Closeness of Zielinski, Kathy : 76.125
-CPU time to process queries : 625 millisec
+CPU time to process queries : 187 millisec
 
 Memory consumption: 19801744 bytes
 

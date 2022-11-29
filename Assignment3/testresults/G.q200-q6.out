@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 390 millisec
+CPU time to construct a MovieNet Database: 156 millisec
 The number of shortest paths between Haddrick, Roy/Broadhurst, Spence : 0
 The number of shortest paths between Houvouras, Anghus/Lackey, Brad : 0
 The number of shortest paths between Levitt, John/Glaser, Paul Michael : 1
@@ -199,7 +199,7 @@ The number of shortest paths between Lee-Sung, Richard/McGuinness, Rory (I) : 23
 The number of shortest paths between Battin, Charlotte/De Veyra, Yani : 0
 The number of shortest paths between Rogers, Gayle/Thiess, Manuela : 8
 The number of shortest paths between Boyce, Rodger/Abbott, Philip : 41
-CPU time to process queries : 30140 millisec
+CPU time to process queries : 27562 millisec
 
-Memory consumption: 292194368 bytes
+Memory consumption: 232244448 bytes
 

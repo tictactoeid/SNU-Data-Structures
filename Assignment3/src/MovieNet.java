@@ -251,13 +251,16 @@ public class MovieNet {
     String current = src;
     queue.offer(current);
     visited.add(current);
+    //int flag = 0;
     while (!queue.isEmpty()) {
+      //if (flag == 1) return npath.get(dst); // TODO: it makes the answer wrong
       current = queue.poll();
       for (String node : this.actorActorRelations.get(current)) {
         // visit each node
         if (!visited.contains(node)) {
           queue.offer(node);
           visited.add(node);
+          //if (node.equals(dst)) break;
         }
         // update distance & npath
         if (distance.get(node) > distance.get(current) + 1) {
@@ -273,8 +276,42 @@ public class MovieNet {
           npath.put(node, npath.get(node) + npath.get(current));
           //info.get(node)[1] += info.get(current)[1];
         }
+        //if (node.equals(dst)) flag = 1;
       }
     }
+    /* // TODO: break when one level after than bst
+    int queueSize;
+    int flag = 0;
+    while (!queue.isEmpty()) {
+      queueSize = queue.size();
+      //System.out.print("distance: " + distance + "\n");
+      for (int i=0; i<queueSize; i++) {
+        current = queue.poll();
+        for (String node: this.actorActorRelations.get(current)) {
+          if (!visited.contains(node)) {
+            queue.offer(node);
+            visited.add(node);
+          }
+          if (distance.get(node) > distance.get(current) + 1) {
+            //if (info.get(node)[0] > info.get(current)[0] + 1) {
+            // shorter path exists: src ----> current -> node
+            distance.put(node, distance.get(current) + 1);
+            npath.put(node, npath.get(current));
+            //info.get(node)[0] = info.get(current)[0] + 1;
+            //info.get(node)[1] = info.get(current)[1];
+          }
+          else if (distance.get(node) == distance.get(current) + 1) { // more paths with same distance
+            //else if (info.get(node)[0] == info.get(current)[0] + 1) {
+            npath.put(node, npath.get(node) + npath.get(current));
+            //info.get(node)[1] += info.get(current)[1];
+          }
+          if (node.equals())
+        }
+      }
+
+    }*/
+
+
     return npath.get(dst);
     //return info.get(dst)[1];
   }
@@ -323,23 +360,27 @@ public class MovieNet {
           before.put(node, current);
           //npath.put(node, npath.get(current));
         }
-        if (node.equals(dst)) break;
+        if (node.equals(dst)) { // TODO: break while and for both
+          if (before.get(dst)==null) return null;
+          String path = dst;
+          Stack<String> tmp = new Stack<>();
+
+          int i=0;
+          while (path != null) {
+            tmp.add(path);
+            path = before.get(path);
+          }
+          String[] apath = new String[tmp.size()];
+          while (!tmp.isEmpty()) {
+            apath[i++] = tmp.pop();
+          }
+          return apath;
+        }
+
       }
     }
-    if (before.get(dst)==null) return null;
-    String path = dst;
-    Stack<String> tmp = new Stack<>();
+    return null;
 
-    int i=0;
-    while (path != null) {
-      tmp.add(path);
-      path = before.get(path);
-    }
-    String[] apath = new String[tmp.size()];
-    while (!tmp.isEmpty()) {
-      apath[i++] = tmp.pop();
-    }
-    return apath;
   }
 
   // [Q8]
@@ -364,6 +405,7 @@ public class MovieNet {
           queue.offer(node);
           visited.add(node);
         }
+        //if (!distance.containsKey(node) || distance.containsKey(current) && distance.get(node) > distance.get(current) + 1){
         if (distance.get(node) > distance.get(current) + 1) {
           distance.put(node, distance.get(current) + 1);
         }

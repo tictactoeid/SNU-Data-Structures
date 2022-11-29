@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 812 millisec
+CPU time to construct a MovieNet Database: 140 millisec
 Bacon number of Walcutt, John : 2
 Eccentricity of Walcutt, John : 5
 Closeness of Walcutt, John : 2476.5
@@ -1799,7 +1799,7 @@ A shortest path from Boyce, Rodger to Abbott, Philip : Boyce, Rodger -> Brown, S
 Which movies were starred by Fee, Brian/Fonda, Bridget/Lye, Reg? (null)
 Which pair cast in No Substitute for Victory (1970) costarred most often? Clark, Mark W./Thomas, Lowell
 Who were cast in all the movie(s): Babar: The Movie (1989)? Alane, Bernard/Alers, Christian/Andr?, Marc/Balutin, Jacques/Banas, Carl/Barazoni, Vincent/Becken, Bobby/Benedetti, Nelly/Bruno, Aurelia/Claisse, Stanley/Crawley, Amos/Darras, Jean-Pierre/Fusco, Angela/Hanna, Elizabeth/Ivanov, R?gis/Kerr, Charles (II)/Labussi?re, Henri/Lecordier, Brigitte/Magrath, Gavin/Marechal, Marie-Eug?nie/Moreau, Marsha/Ouimette, Stephen/Pellissier, Christian/Pinsent, Gordon/Polley, Sarah/Stocker, John/Stone, Stuart (I)/Vincent, Marie/Wiggins, Chris (I)/Yamanaka, Lisa
-CPU time to process queries : 141796 millisec
+CPU time to process queries : 102953 millisec
 
-Memory consumption: 252782792 bytes
+Memory consumption: 416617712 bytes
 
