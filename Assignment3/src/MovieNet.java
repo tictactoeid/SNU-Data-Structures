@@ -8,25 +8,25 @@ import java.util.*;
 public class MovieNet {
 
   static final String KevinBacon = "Bacon, Kevin";
-  HashSet<String> movies;
-  HashSet<String> actors;
+  LinkedHashSet<String> movies;
+  LinkedHashSet<String> actors;
   //HashMap<String, Integer> distance;
   //HashMap<String, Integer> npath;
 
-  HashMap<String, HashSet<String>> actorActorRelations; // {actor, {co-stared actors}}
-  HashMap<String, HashSet<String>> movieActorRelations; // {movie, {actors}}
-  HashMap<String, HashSet<String>> actorMovieRelations; // {actor, {movies}}
+  LinkedHashMap<String, LinkedHashSet<String>> actorActorRelations; // {actor, {co-stared actors}}
+  LinkedHashMap<String, LinkedHashSet<String>> movieActorRelations; // {movie, {actors}}
+  LinkedHashMap<String, LinkedHashSet<String>> actorMovieRelations; // {actor, {movies}}
 
   // Each instance of movielines is String[] such that
   //	String[0] = title of movie
   //	String[1..n-1] = list of actors
   public MovieNet(LinkedList<String[]> movielines) {
-    this.movies = new HashSet<>();
-    this.actors = new HashSet<>();
+    this.movies = new LinkedHashSet<>();
+    this.actors = new LinkedHashSet<>();
 
-    this.actorActorRelations = new HashMap<>();
-    this.movieActorRelations = new HashMap<>();
-    this.actorMovieRelations = new HashMap<>();
+    this.actorActorRelations = new LinkedHashMap<>();
+    this.movieActorRelations = new LinkedHashMap<>();
+    this.actorMovieRelations = new LinkedHashMap<>();
 
     // init movies, actors, movieActorRelations
     String currMovie = null;
@@ -34,7 +34,7 @@ public class MovieNet {
     for (String[] movieline: movielines) {
       currMovie = movieline[0];
       this.movies.add(currMovie);
-      this.movieActorRelations.put(currMovie, new HashSet<>());
+      this.movieActorRelations.put(currMovie, new LinkedHashSet<>());
 
       for (int i=1; i<movieline.length; i++) {
         currActor = movieline[i];
@@ -45,7 +45,7 @@ public class MovieNet {
 
     // init actorMovieRelations
     for (String actor: actors) {
-      actorMovieRelations.put(actor, new HashSet<>());
+      actorMovieRelations.put(actor, new LinkedHashSet<>());
     }
     for (String movie: movies) {
       for (String actor: movieActorRelations.get(movie)) {
@@ -55,7 +55,7 @@ public class MovieNet {
 
     // init actorActorRelations
     for (String actor: actors) {
-      actorActorRelations.put(actor, new HashSet<>());
+      actorActorRelations.put(actor, new LinkedHashSet<>());
     }
     for (String movie: movies) {
       for (String actor: movieActorRelations.get(movie)) {
@@ -252,9 +252,37 @@ public class MovieNet {
     queue.offer(current);
     visited.add(current);
     //int flag = 0;
+    int queueSize = 0;
+    int level = 0;
     while (!queue.isEmpty()) {
       //if (flag == 1) return npath.get(dst); // TODO: it makes the answer wrong
-      current = queue.poll();
+      queueSize = queue.size();
+      for (int i=0; i<queueSize; i++) {
+        current = queue.poll();
+        for (String node: this.actorActorRelations.get(current)) {
+          if (!visited.contains(node)) {
+            queue.offer(node);
+            visited.add(node);
+          }
+          if (distance.get(node) > distance.get(current) + 1) {
+            //if (info.get(node)[0] > info.get(current)[0] + 1) {
+            // shorter path exists: src ----> current -> node
+            distance.put(node, distance.get(current) + 1);
+            npath.put(node, npath.get(current));
+            //info.get(node)[0] = info.get(current)[0] + 1;
+            //info.get(node)[1] = info.get(current)[1];
+          }
+          else if (distance.get(node) == distance.get(current) + 1) { // more paths with same distance
+            //else if (info.get(node)[0] == info.get(current)[0] + 1) {
+            npath.put(node, npath.get(node) + npath.get(current));
+            //info.get(node)[1] += info.get(current)[1];
+          }
+        }
+      }
+      level++;
+      if (level >= distance.get(dst)) return npath.get(dst);
+
+      /*current = queue.poll();
       for (String node : this.actorActorRelations.get(current)) {
         // visit each node
         if (!visited.contains(node)) {
@@ -277,7 +305,7 @@ public class MovieNet {
           //info.get(node)[1] += info.get(current)[1];
         }
         //if (node.equals(dst)) flag = 1;
-      }
+      }*/
     }
     /* // TODO: break when one level after than bst
     int queueSize;
@@ -310,8 +338,6 @@ public class MovieNet {
       }
 
     }*/
-
-
     return npath.get(dst);
     //return info.get(dst)[1];
   }
@@ -341,12 +367,15 @@ public class MovieNet {
 
     String current = src;
 
+
     queue.offer(current);
     visited.add(current);
     //path.add(src);
-
+    int queueSize = 0;
+    int level = 0;
     while (!queue.isEmpty()) {
       current = queue.poll();
+      queueSize = queue.size();
       for (String node : this.actorActorRelations.get(current)) {
         // visit each node
         if (!visited.contains(node)) {
@@ -398,6 +427,7 @@ public class MovieNet {
     String current = actor;
     queue.offer(current);
     visited.add(current);
+
     while (!queue.isEmpty()) {
       current = queue.poll();
       for (String node : this.actorActorRelations.get(current)) {

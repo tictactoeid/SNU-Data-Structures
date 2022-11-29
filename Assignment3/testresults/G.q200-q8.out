@@ -1,4 +1,4 @@
-CPU time to construct a MovieNet Database: 156 millisec
+CPU time to construct a MovieNet Database: 218 millisec
 Eccentricity of Walcutt, John : 5
 Eccentricity of Mertens, Tim : 6
 Eccentricity of Stewart, Marianne : 5
@@ -199,7 +199,7 @@ Eccentricity of Koumani, Maya : 7
 Eccentricity of Miller, Karen (I) : 6
 Eccentricity of Hopf, Hans : 6
 Eccentricity of MacNeil, Cornell : 7
-CPU time to process queries : 25406 millisec
+CPU time to process queries : 24265 millisec
 
-Memory consumption: 160835512 bytes
+Memory consumption: 213164856 bytes
 
