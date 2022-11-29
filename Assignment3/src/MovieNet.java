@@ -233,12 +233,11 @@ public class MovieNet {
     HashMap<String, Integer> distance = new HashMap<>(actors.size());
     HashMap<String, Integer> npath = new HashMap<>(actors.size());
 
-    //HashMap<String, ArrayList<Integer>> info = new HashMap<>(actors.size());
+    //HashMap<String, int[]> info = new HashMap<>(actors.size());
     //[distance, npath]
     for (String actor: this.actors) {
-      //info.put(actor, new ArrayList<Integer>(2));
-      //info.get(actor).add(0, Integer.MAX_VALUE); // distance
-      //info.get(actor).add(1, 0); // npath
+      //int[] arr = new int[]{Integer.MAX_VALUE, 0};
+      //info.put(actor, arr);
 
       distance.put(actor, Integer.MAX_VALUE);  // inf
       npath.put(actor, 0);
@@ -246,8 +245,8 @@ public class MovieNet {
     }
     npath.put(src, 1);
     distance.put(src, 0);
-    //info.get(src).set(0, 0);
-    //info.get(src).set(1, 1);
+    //info.get(src)[0] = 0; // distance
+    //info.get(src)[1] = 1; // npath
 
     String current = src;
     queue.offer(current);
@@ -262,22 +261,22 @@ public class MovieNet {
         }
         // update distance & npath
         if (distance.get(node) > distance.get(current) + 1) {
-        //if (info.get(node).get(0) > info.get(current).get(0) + 1){
+        //if (info.get(node)[0] > info.get(current)[0] + 1) {
           // shorter path exists: src ----> current -> node
           distance.put(node, distance.get(current) + 1);
           npath.put(node, npath.get(current));
-          //info.get(node).set(0, info.get(current).get(0) + 1);
-          //info.get(node).set(1, info.get(current).get(1));
+          //info.get(node)[0] = info.get(current)[0] + 1;
+          //info.get(node)[1] = info.get(current)[1];
         }
         else if (distance.get(node) == distance.get(current) + 1) { // more paths with same distance
-        //else if (info.get(node).get(0) == info.get(current).get(0) + 1){
+        //else if (info.get(node)[0] == info.get(current)[0] + 1) {
           npath.put(node, npath.get(node) + npath.get(current));
-          //info.get(node).set(1, info.get(current).get(1) + info.get(node).get(1));
+          //info.get(node)[1] += info.get(current)[1];
         }
       }
     }
     return npath.get(dst);
-    //return info.get(dst).get(1);
+    //return info.get(dst)[1];
   }
 
   // [Q7]

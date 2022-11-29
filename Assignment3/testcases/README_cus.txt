@@ -1,0 +1,1 @@
+java MainBacon G.txt test.txt > test.out
